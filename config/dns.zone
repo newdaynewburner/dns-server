@@ -1,0 +1,14 @@
+$ORIGIN lan.
+$TTL 300
+
+@ IN SOA gateway.lan. admin.lan. (
+    1       ; serial
+    3600    ; refresh
+    600     ; retry
+    604800  ; expire
+    300     ; minimum
+)
+
+@   IN  NS  gateway.lan.
+gateway IN  A   192.168.1.1
+portal  IN  A   192.168.1.1

@@ -1,0 +1,10 @@
+# Project
+TODO.txt
+test/
+
+# Python
+*.pyc
+__pycache__/
+
+# Program Logs
+*.log
