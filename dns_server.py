@@ -15,7 +15,7 @@ import logging
 from dnslib import DNSRecord, QTYPE, RR, A, ZoneParser
 from dnslib.server import DNSServer, DNSHandler, BaseResolver
         
-class RougeDNSServer(BaseResolver):
+class ComponentDNSServer(BaseResolver):
     def __init__(self, dns_zone_records, dns_override_records, primary_upstream, backup_upstream, logger=None):
         """ Initialize the object
         """
@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
     # Start the DNS server
     logger.info(f"[DNS Server] ...Bringing up the server...")
-    resolver = RougeDNSServer(dns_zone_records, dns_override_records, config["DNS"]["primary_upstream"], config["DNS"]["backup_upstream"], logger=logger)
+    resolver = ComponentDNSServer(dns_zone_records, dns_override_records, config["DNS"]["primary_upstream"], config["DNS"]["backup_upstream"], logger=logger)
     server = DNSServer(resolver, port=int(config["DNS"]["lport"]), address=config["DNS"]["laddr"])
     server.start_thread()
     logger.info(f"[DNS Server] ...Done! Server is up and listening on {config['DNS']['laddr']}:{config['DNS']['lport']}!")
