@@ -1,0 +1,12 @@
+<node>
+    <interface name="com.dnsserver.DNSServer">
+        <method name="Start"/>
+        <method name="Stop"/>
+        <method name="Restart"/>
+        <method name="Configure">
+            <arg type="s" name="setting" direction="in"/>
+            <arg type="s" name="value" direction="in"/>
+        </method>
+        <property name="State" type="s" access="read"/>
+    </interface>
+</node>

@@ -1,0 +1,15 @@
+[Unit]
+Description=DNS server for rouge access point
+After=dbus.service
+Requires=dbus.service
+
+[Service]
+Type=dbus
+BusName=com.dnsserver.DNSServer
+ExecStart=/usr/sbin/dnsserverd /etc/rouge-access-point/components/dns-server.ini
+Restart=on-failure
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
