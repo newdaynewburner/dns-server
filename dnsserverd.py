@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     # Set up the logger
     if bool(config["DNS"]["log_file"]):
-    log_file = config["DNS"]["log_file"]
+        log_file = config["DNS"]["log_file"]
         if "~" in log_file:
             log_file = os.path.expanduser(log_file)
         if not os.path.isdir(os.path.split(log_file)[0]):
@@ -38,7 +38,7 @@ if __name__ == "__main__":
         logging.basicConfig(
             level=logging.DEBUG,
             format="%(asctime)s - %(levelname)s - [DNS Server] %(message)s",
-            logfile=log_file
+            filename=log_file
         )
     else:
         logging.basicConfig(
